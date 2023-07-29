@@ -9,16 +9,13 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - name: install GitVersion
-        uses: gittools/actions/gitversion/setup@v0
-        with:
-          versionSpec: 5.x
-
       - id: version
-        uses: gittools/actions/gitversion/execute@v0
+        uses: paulhatch/semantic-version@v5.0.2
+        with:
+          bump_each_commit: true
 
       - name: created tag
         run: |
-          echo "${{ steps.version.outputs.semVer }}"
-          echo "${{ steps.version.outputs.fullSemVer }}"
+          echo "${{ steps.version.outputs.version }}"
+          echo "${{ steps.version.outputs.version_tag }}"
 
