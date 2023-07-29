@@ -9,8 +9,8 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - id: semver-tag
-        uses: gandarez/semver-action@latest
+      - id: version
+        uses: paulhatch/semantic-version@v5.0.2
       - name: created tag
-        run: echo "${{ steps.semver-tag.outputs.semver_tag }}"
+        run: echo "${{ steps.version.outputs.version_tag }}"
 
