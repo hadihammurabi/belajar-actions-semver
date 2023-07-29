@@ -1,0 +1,16 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - master
+      - develop
+jobs:
+  release:
+    runs-on: debian-latest
+    steps:
+      - id: semver-tag
+        uses: gandarez/semver-action@vlatest
+      - name: created tag
+        run: echo "${{ steps.semver-tag.outputs.semver_tag }}"
+
