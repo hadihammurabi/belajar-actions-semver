@@ -12,5 +12,7 @@ jobs:
       - id: version
         uses: paulhatch/semantic-version@v5.0.2
       - name: created tag
-        run: echo "${{ steps.version.outputs.version_tag }}"
+        run: |
+          echo "${{ steps.version.outputs.version }}"
+          echo "${{ steps.version.outputs.version_tag }}"
 
