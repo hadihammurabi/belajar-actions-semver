@@ -11,6 +11,9 @@ jobs:
     steps:
       - id: version
         uses: paulhatch/semantic-version@v5.0.2
+        with:
+          bump_each_commit: true
+
       - name: created tag
         run: |
           echo "${{ steps.version.outputs.version }}"
